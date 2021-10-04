@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 // import img from "../images/dino-reichmuth-A5rCN8626Ck-unsplash.jpg";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import CommentIcon from "@material-ui/icons/Comment";
-import BookmarkIcon from "@material-ui/icons/Bookmark";
 import IconButton from "@material-ui/core/IconButton";
 import "../stylesheets/Post.css";
 import { Link } from "react-router-dom";
