@@ -35,7 +35,13 @@ function AddPost() {
     setId((prevState) => prevState + 1);
     setPost([
       ...posts,
-      { imgUrl: post.imgUrl, desc: post.desc, id: id, comments: [], likes: 0 },
+      {
+        imgUrl: post.imgUrl,
+        desc: post.desc,
+        id: id + post.imgUrl,
+        comments: [],
+        likes: 0,
+      },
     ]);
   };
 

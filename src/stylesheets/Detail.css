@@ -2,51 +2,53 @@
   padding: 50px;
   display: flex;
   justify-content: space-between;
+  position: relative;
 }
 
-.comment__items{
-    color: rgb(197, 195, 195);
+.comment__items {
+  color: rgb(197, 195, 195);
 }
 
-.comment__items div{
-    background-color: #202327;
-    padding: 10px;
-    font-size: 14px;
-    margin-bottom: 10px;
+.comment__items div {
+  background-color: #202327;
+  padding: 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
-.comment__add__item input{
-    width: 100%;
-    background-color: transparent;
-    outline: none;
-    border: none;
-    color: rgb(197, 195, 195);
-    border-bottom: 1px solid #3e3f41;
+.comment__add__item input {
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  color: rgb(197, 195, 195);
+  border-bottom: 1px solid #3e3f41;
 }
 
-.comment__add__item div{
-    padding: 20px;
+.comment__add__item div {
+  padding: 20px;
 }
 
-.add__btn{
-    background-color: rgb(0, 174, 255);
-    border: none;
-    outline: none;
-    padding: 10px 20px;
-    color: whitesmoke;
+.add__btn {
+  background-color: rgb(0, 174, 255);
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  color: whitesmoke;
 }
 
-.detail__goBack{
-    background-color: #202327;
-    width: fit-content;
-    height: fit-content;
-    border-radius: 100px;
-    box-shadow: 0px 0px 5px rgb(56, 55, 55);
-    
+.detail__goBack {
+  background-color: #202327;
+  width: fit-content;
+  height: fit-content;
+  border-radius: 100px;
+  box-shadow: 0px 0px 5px rgb(56, 55, 55);
+  position: sticky;
+  top: 170px;
 }
 
-.goBack__icn{
-    color: whitesmoke!important;
+.goBack__icn {
+  color: whitesmoke !important;
 }
 
 .detail__post {
@@ -57,7 +59,9 @@
   border: 1px solid #3e3f41;
   padding: 30px 0 0 0;
   border-radius: 30px;
-  /* grid-area: box; */
+  height: 100%;
+  position: sticky;
+  top: 170px;
 }
 
 .detail__comment {
