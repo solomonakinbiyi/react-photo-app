@@ -26,7 +26,7 @@ function App() {
         "https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_06/2746701/190208-jeff-bezos-ew-1135a.jpg",
       desc: "Jeff Bezos",
       id: "1https://media-cldnry.s-nbcnews.com/image/upload/newscms/2019_06/2746701/190208-jeff-bezos-ew-1135a.jpg",
-      comments: [],
+      comments: ["I think this is the Amazon Ceo", "People work hard"],
       likes: 0,
     },
     {
@@ -52,7 +52,7 @@ function App() {
       id: "4https://cdn.vox-cdn.com/thumbor/Up9eSB5r93VlpYRaq4yj8om9sYA=/0x202:2025x1552/1400x1400/filters:focal(0x202:2025x1552):format(jpeg)/cdn.vox-cdn.com/uploads/chorus_image/image/47006660/GettyImages-480103592.0.jpg",
       comments: [],
       likes: 0,
-    },
+    }
   ]);
   const [postId, setPostId] = useState(0);
   return (
