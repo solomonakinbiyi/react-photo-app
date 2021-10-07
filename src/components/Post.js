@@ -12,14 +12,16 @@ function Post({ id, desc, img, likes, comments }) {
   const { setPostId } = useContext(PostIdContext);
   const { posts, setPost } = useContext(PostContext);
   let postIndex = 0;
+  
   const incrementLikes = (postIdparam, el) => {
     var value = undefined;
     for (var i = 0; i < el.length; i++) {
       value = el[i].id;
       if (postIdparam === value) {
-        posts[i].likes++;
+        el[i].likes++;
+        setPost([...el]);
         postIndex = i;
-        console.log(posts[i].likes);
+        console.log(el[i].likes);
         break;
       }
     }
@@ -48,6 +50,7 @@ function Post({ id, desc, img, likes, comments }) {
       if (postIdparam === value) {
         imgvalue = el[i].likes;
         el.splice(i, 1)
+        setPost([...el]);
         break;
       }
     }
