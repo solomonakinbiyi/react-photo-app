@@ -38,7 +38,7 @@ function AddPost() {
       {
         imgUrl: post.imgUrl,
         desc: post.desc,
-        id: id + post.imgUrl,
+        id: id + post.desc,
         comments: [],
         likes: 0,
       },

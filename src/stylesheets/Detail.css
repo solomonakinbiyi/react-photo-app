@@ -1,8 +1,12 @@
 .detail {
-  padding: 50px;
+  padding: 50px 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   position: relative;
+}
+
+#pstTitleForMobile {
+  display: none;
 }
 
 .comment__items {
@@ -55,7 +59,7 @@
   display: flex;
   flex-direction: column;
   background-color: #202327;
-  width: 45%;
+  width: 40%;
   border: 1px solid #3e3f41;
   padding: 30px 0 0 0;
   border-radius: 30px;
@@ -65,7 +69,7 @@
 }
 
 .detail__comment {
-  width: 45%;
+  width: 40%;
 }
 
 .post__top {
@@ -106,4 +110,10 @@
 .post__bottom__icnBtn {
   color: #7f7f83 !important;
   font-size: 15px !important;
+}
+
+@media screen and (max-width: 440px) {
+  #pstTitleForMobile {
+    display: block;
+  }
 }

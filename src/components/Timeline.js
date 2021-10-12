@@ -9,7 +9,13 @@ function Timeline() {
 
   return (
     <div className="timeline">
-      {posts ? (
+      {posts.length === 0 ? (
+        <h1
+          style={{ fontSize: "60px", color: "whitesmoke", textAlign: "center" }}
+        >
+          No posts
+        </h1>
+      ) : (
         posts.map((s) => (
           <Post
             key={s.id}
@@ -20,12 +26,6 @@ function Timeline() {
             likes={s.likes}
           />
         ))
-      ) : (
-        <h1
-          style={{ fontSize: "60px", color: "whitesmoke", textAlign: "center" }}
-        >
-          No posts
-        </h1>
       )}
     </div>
   );

@@ -11,6 +11,8 @@ import { PostContext, PostIdContext } from "../App";
 
 function Detail() {
   const { id } = useParams();
+  // const [idForState, setIdForState] = React.useState(id);
+  
   const { posts, setPost } = useContext(PostContext);
   const { postId } = useContext(PostIdContext);
   const [commentInput, setCommentInput] = React.useState({
@@ -42,7 +44,7 @@ function Detail() {
     var postRow = "";
     for (var i = 0; i < posts.length; i++) {
       value = posts[i].id;
-      if (postId === value) {
+      if (id === value) {
         posts[i].comments.push(commentInput.comment);
         console.log(posts[i].comments);
         break;
@@ -51,6 +53,7 @@ function Detail() {
   };
 
   const getPostDesc = (postIdparam, el) => {
+    // setIdForState(id);
     var value = undefined;
     var descvalue = "";
     for (var i = 0; i < el.length; i++) {
@@ -70,6 +73,7 @@ function Detail() {
       value = el[i].id;
       if (postIdparam === value) {
         imgvalue = el[i].imgUrl;
+        console.log(el[i].id);
         postIndex = i;
         console.log(postIndex);
         break;
@@ -89,10 +93,10 @@ function Detail() {
       </div>
       <div className="detail__post">
         <div className="post__top">
-          {postId ? getPostDesc(postId, posts) : ""}
+          {id ? getPostDesc(id, posts) : ""}
         </div>
         <div className="post__middle">
-          <img src={postId ? getPostImage(postId, posts) : ""} alt="" />
+          <img src={id ? getPostImage(id, posts) : ""} alt="" />
         </div>
         <div className="post__bottom">
           <IconButton className="post__bottom__icnBtn">
@@ -115,7 +119,9 @@ function Detail() {
         </div>
       </div>
       <div className="detail__comment">
-        <div className="comment__top">Comments</div>
+        <div className="comment__top">
+          Comments <span id='pstTitleForMobile'>for: '{id ? getPostDesc(id, posts) : ""}'</span>
+        </div>
         <br />
 
         {posts[postIndex].comments.map((s, i) => (
