@@ -1,25 +1,20 @@
 import React, { useContext } from "react";
 import "../stylesheets/Detail.css";
-import img from "../images/dino-reichmuth-A5rCN8626Ck-unsplash.jpg";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import CommentIcon from "@material-ui/icons/Comment";
-import BookmarkIcon from "@material-ui/icons/Bookmark";
 import IconButton from "@material-ui/core/IconButton";
 import { Link, useParams } from "react-router-dom";
 import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
-import { PostContext, PostIdContext } from "../App";
+import { PostContext} from "../App";
 
 function Detail() {
   const { id } = useParams();
-  // const [idForState, setIdForState] = React.useState(id);
-  
-  const { posts, setPost } = useContext(PostContext);
-  const { postId } = useContext(PostIdContext);
+  const { posts } = useContext(PostContext);
   const [commentInput, setCommentInput] = React.useState({
     comment: "",
   });
+  
   const [isLoading, setIsLoading] = React.useState(false);
-  let postIndex = 0;
 
   const handleInput = (e) => {
     setCommentInput({
@@ -52,36 +47,6 @@ function Detail() {
     }
   };
 
-  const getPostDesc = (postIdparam, el) => {
-    // setIdForState(id);
-    var value = undefined;
-    var descvalue = "";
-    for (var i = 0; i < el.length; i++) {
-      value = el[i].id;
-      if (postIdparam === value) {
-        descvalue = el[i].desc;
-        break;
-      }
-    }
-    return descvalue;
-  };
-
-  const getPostImage = (postIdparam, el) => {
-    var value = undefined;
-    var imgvalue = "";
-    for (var i = 0; i < el.length; i++) {
-      value = el[i].id;
-      if (postIdparam === value) {
-        imgvalue = el[i].imgUrl;
-        console.log(el[i].id);
-        postIndex = i;
-        console.log(postIndex);
-        break;
-      }
-    }
-    return imgvalue;
-  };
-
   return (
     <div className="detail">
       <div className="detail__goBack">
@@ -93,42 +58,53 @@ function Detail() {
       </div>
       <div className="detail__post">
         <div className="post__top">
-          {id ? getPostDesc(id, posts) : ""}
+          {id ? posts.filter((item) => item?.id === id)?.[0]?.desc : ""}
         </div>
         <div className="post__middle">
-          <img src={id ? getPostImage(id, posts) : ""} alt="" />
+          <img
+            src={id ? posts.filter((item) => item?.id === id)?.[0]?.imgUrl : ""}
+            alt=""
+          />
         </div>
         <div className="post__bottom">
           <IconButton className="post__bottom__icnBtn">
             <div className="love">
               <FavoriteIcon className="love__icon" />
-              &nbsp;{posts[postIndex].likes}
+              &nbsp;
+              {id ? posts.filter((item) => item?.id === id)?.[0]?.likes : ""}
             </div>
           </IconButton>
           <IconButton className="post__bottom__icnBtn">
             <div className="comment">
               <CommentIcon className="comment__icon" />
-              &nbsp;{posts[postIndex].comments.length}
+              &nbsp;
+              {id
+                ? posts.filter((item) => item?.id === id)?.[0]?.comments.length
+                : ""}
             </div>
           </IconButton>
           <IconButton className="post__bottom__icnBtn">
-            <div className="save">
-              {/* <BookmarkIcon className="save__icon" /> */}
-            </div>
+            <div className="save"></div>
           </IconButton>
         </div>
       </div>
       <div className="detail__comment">
         <div className="comment__top">
-          Comments <span id='pstTitleForMobile'>for: '{id ? getPostDesc(id, posts) : ""}'</span>
+          Comments{" "}
+          <span id="pstTitleForMobile">
+            for: '{id ? posts.filter((item) => item?.id === id)?.[0]?.desc : ""}
+            '
+          </span>
         </div>
         <br />
 
-        {posts[postIndex].comments.map((s, i) => (
-          <div key={i} className="comment__items">
-            <div>{s}</div>
-          </div>
-        ))}
+        {posts
+          .filter((item) => item?.id === id)?.[0]
+          ?.comments.map((s, i) => (
+            <div key={i} className="comment__items">
+              <div>{s}</div>
+            </div>
+          ))}
         <form action="" onSubmit={handleSubmit}>
           <div className="comment__items comment__add__item">
             <div>

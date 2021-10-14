@@ -2,10 +2,10 @@ import React from "react";
 import Post from "./Post";
 import "../stylesheets/Timeline.css";
 import { PostContext } from "../App";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 
 function Timeline() {
-  const { posts, setPost } = useContext(PostContext);
+  const { posts } = useContext(PostContext);
 
   return (
     <div className="timeline">

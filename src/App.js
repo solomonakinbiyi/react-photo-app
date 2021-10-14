@@ -4,8 +4,6 @@ import Timeline from "./components/Timeline";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Detail from "./components/Detail";
 import AddPost from "./components/AddPost";
-import Footer from "./components/Footer";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
 import { useState, createContext } from "react";
 
 export const PostContext = createContext();
@@ -54,30 +52,24 @@ function App() {
       likes: 0,
     },
   ]);
-  const [postId, setPostId] = useState(0);
+
   return (
     <Router>
       <div className="App">
         <Header></Header>
-        <PostIdContext.Provider value={{ postId, setPostId }}>
+        <PostContext.Provider value={{ posts, setPost }}>
           <Switch>
             <Route path="/detail/:id">
-              <PostContext.Provider value={{ posts, setPost }}>
-                <Detail></Detail>
-              </PostContext.Provider>
+              <Detail></Detail>
             </Route>
             <Route path="/addpost">
-              <PostContext.Provider value={{ posts, setPost }}>
-                <AddPost></AddPost>
-              </PostContext.Provider>
+              <AddPost></AddPost>
             </Route>
             <Route path="/">
-              <PostContext.Provider value={{ posts, setPost }}>
-                <Timeline></Timeline>
-              </PostContext.Provider>
+              <Timeline></Timeline>
             </Route>
           </Switch>
-        </PostIdContext.Provider>
+        </PostContext.Provider>
       </div>
     </Router>
   );

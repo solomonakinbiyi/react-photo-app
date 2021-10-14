@@ -1,15 +1,13 @@
-import React, { useContext, useEffect } from "react";
-// import img from "../images/dino-reichmuth-A5rCN8626Ck-unsplash.jpg";
+import React, { useContext } from "react";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import CommentIcon from "@material-ui/icons/Comment";
 import IconButton from "@material-ui/core/IconButton";
 import "../stylesheets/Post.css";
 import { Link } from "react-router-dom";
-import { PostContext, PostIdContext } from "../App";
+import { PostContext } from "../App";
 import DeleteIcon from "@material-ui/icons/Delete";
 
 function Post({ id, desc, img, likes, comments }) {
-  const { setPostId } = useContext(PostIdContext);
   const { posts, setPost } = useContext(PostContext);
   let postIndex = 0;
   
@@ -27,21 +25,6 @@ function Post({ id, desc, img, likes, comments }) {
     }
   };
 
-  const getLikes = (postIdparam, el) => {
-    var value = undefined;
-    var imgvalue = "";
-    for (var i = 0; i < el.length; i++) {
-      value = el[i].id;
-      if (postIdparam === value) {
-        imgvalue = el[i].likes;
-        postIndex = i;
-        console.log(postIndex);
-        break;
-      }
-    }
-    return imgvalue;
-  };
-
   const deletePost = (postIdparam, el) => {
     var value = undefined;
     var imgvalue = "";
@@ -55,6 +38,7 @@ function Post({ id, desc, img, likes, comments }) {
       }
     }
   };
+  
   return (
     <div className="post">
       <div className="post__top">{desc}</div>
@@ -70,15 +54,10 @@ function Post({ id, desc, img, likes, comments }) {
         >
           <div className="love">
             <FavoriteIcon className="love__icon" />
-            &nbsp;{id ? getLikes(id, posts) : ""}
+            &nbsp;{id ? posts.filter((item) => item?.id === id)?.[0]?.likes : ""}
           </div>
         </IconButton>
-        <Link
-          to={{ pathname: `/detail/${id}` }}
-          onClick={() => {
-            setPostId(id);
-          }}
-        >
+        <Link to={{ pathname: `/detail/${id}` }}>
           <IconButton className="post__bottom__icnBtn">
             <div className="comment">
               <CommentIcon className="comment__icon" />
