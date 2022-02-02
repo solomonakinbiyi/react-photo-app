@@ -17,7 +17,6 @@ function Post({ id, desc, img, likes, comments }) {
       if (postIdparam === value) {
         el[i].likes++;
         setPost([...el]);
-        postIndex = i;
         console.log(el[i].likes);
         break;
       }
