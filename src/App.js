@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
 import Timeline from "./components/Timeline";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Detail from "./components/Detail";
 import AddPost from "./components/AddPost";
 import { useState, createContext } from "react";

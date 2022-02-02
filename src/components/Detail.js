@@ -36,7 +36,6 @@ function Detail() {
 
   const addComment = (com) => {
     var value = undefined;
-    var postRow = "";
     for (var i = 0; i < posts.length; i++) {
       value = posts[i].id;
       if (id === value) {

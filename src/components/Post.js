@@ -9,7 +9,6 @@ import DeleteIcon from "@material-ui/icons/Delete";
 
 function Post({ id, desc, img, likes, comments }) {
   const { posts, setPost } = useContext(PostContext);
-  let postIndex = 0;
   
   const incrementLikes = (postIdparam, el) => {
     var value = undefined;
@@ -27,11 +26,9 @@ function Post({ id, desc, img, likes, comments }) {
 
   const deletePost = (postIdparam, el) => {
     var value = undefined;
-    var imgvalue = "";
     for (var i = 0; i < el.length; i++) {
       value = el[i].id;
       if (postIdparam === value) {
-        imgvalue = el[i].likes;
         el.splice(i, 1)
         setPost([...el]);
         break;
