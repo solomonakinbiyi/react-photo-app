@@ -54,10 +54,14 @@ function Post({ id, desc, img, likes, comments }) {
         >
           <div className="love">
             <FavoriteIcon className="love__icon" />
-            &nbsp;{id ? posts.filter((item) => item?.id === id)?.[0]?.likes : ""}
+            &nbsp;
+            {id ? posts.filter((item) => item?.id === id)?.[0]?.likes : ""}
           </div>
         </IconButton>
-        <Link to={{ pathname: `/detail/${id}` }}>
+        <Link
+          to={{ pathname: `/detail/${id}` }}
+          style={{ textDecoration: "none" }}
+        >
           <IconButton className="post__bottom__icnBtn">
             <div className="comment">
               <CommentIcon className="comment__icon" />

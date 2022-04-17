@@ -8,11 +8,14 @@ function Header() {
   return (
     <div className="header">
       <nav>
-        <Link to="/addpost">
+        <Link to="/addpost" style={{ textDecoration: "none" }}>
           <IconButton className="header__icnBtn">
             <div>
               <MonochromePhotosIcon className="header__logo" />
-              <span className="header__logoDescription">Photodiary</span>
+              <span className="header__logoDescription">
+                Photodiary
+                <br /> Click to add image
+              </span>
             </div>
           </IconButton>
         </Link>
