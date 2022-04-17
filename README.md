@@ -9,6 +9,8 @@ It was created with useState only.
 
 Here is a link to the project hosted on Heroku: https://photo-app-react.herokuapp.com/
 
+Connect with me on LinkedIn: https://www.linkedin.com/in/solomonakinbiyi/
+
 Please give this project a star, feel free to go through the source code, share, and use it for tutorials. Thank you
 
 ![image](https://user-images.githubusercontent.com/81763480/137301691-4e112c76-1769-4767-8714-357adf2a49de.png)
