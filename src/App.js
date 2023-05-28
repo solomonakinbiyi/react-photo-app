@@ -37,7 +37,7 @@ function App() {
     },
     {
       imgUrl:
-        "https://www.entrepreneurs.ng/wp-content/uploads/2019/06/Mark-Zuckerberg.jpg",
+        "https://encrypted-tbn1.gstatic.com/licensed-image?q=tbn:ANd9GcRvYgCcQ8HJD7YzoL9R9_OllhB66RKphyBOVfpwGh6bLXoXzOUhmoSsEJS1tI3gGPYoST6Uk8g2ap2E7Qk",
       desc: "Mark Zuckerberg",
       id: "3Mark Zuckerberg",
       comments: [],
